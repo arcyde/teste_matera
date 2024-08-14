@@ -4,26 +4,26 @@ Feature: Testing a cat's breed API - method GET
         Given I am making a GET request to the "/breeds" endpoint
         When I send the request
         Then I should receive a "200 OK" response
-		And the response body should contain a list of cat breeds
+	And the response body should contain a list of cat breeds
 		
     Scenario: Success in retrieve 3 breeds
         Given I am making a GET request to the "/breeds" endpoint with the parameter "limit=3"
         When I send the request
         Then I should receive a "200 OK" response
-		And the response body should contain a list of cat breeds with a maximum of 3 items
+	And the response body should contain a list of cat breeds with a maximum of 3 items
 		
-	Scenario: Success in valid response schema
-	    Given I am making a GET request to the "/breeds" endpoint
+    Scenario: Success in valid response schema
+	Given I am making a GET request to the "/breeds" endpoint
         When I send the request
         Then I should receive a "200 OK" response
-		And the response body should match the expected schema for cat breeds
+	And the response body should match the expected schema for cat breeds
 		
-	Scenario: Failure at invalid endpoint route
-	    Given I am making a GET request to the "/invalid-route" endpoint
+    Scenario: Failure at invalid endpoint route
+	Given I am making a GET request to the "/invalid-route" endpoint
         When I send the request
         Then I should receive a "404 Not Found" response
 
     Scenario: Failure in negative limit
-	    Given I am making a GET request to the "/breeds" endpoint with the parameter "limit=-1"
+	Given I am making a GET request to the "/breeds" endpoint with the parameter "limit=-1"
         When I send the request
         Then I should receive a "400 Bad Request" response		
