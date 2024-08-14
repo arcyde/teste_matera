@@ -1,0 +1,27 @@
+Feature: Testing an ERP's user filter 
+
+    Scenario: Success in search user by name and person type
+        Given I am authenticated and have selected a person type
+        When I fill the name and click the filter button
+        Then all users with that name 
+		And selected person type should be shown
+    
+    Scenario: Success in search by person type
+        Given I am authenticated and have selected a person type
+        When I click the filter button
+        Then all users with the selected person type should be shown
+    
+    Scenario: Success in clear all fields
+        Given I am authenticated and some or all fields are filled
+        When I click the clear filters button
+        Then all filter fields should be cleared
+    
+    Scenario: Failure at search users by using an invalid e-mail
+        Given I am authenticated and have entered an invalid e-mail address in the e-mail field
+        When I click the filter button
+        Then a message "No users found" should be displayed
+    
+    Scenario: Failure at search user by a unregistered name
+        Given I am authenticated and have filled a name that does not exist in the database
+        When I click the filter button
+        Then a message "No users found" should be displayed

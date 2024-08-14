@@ -1,0 +1,2 @@
+npx cucumber-js
+pause
