@@ -4,7 +4,7 @@ Feature: Testing an ERP's user filter
         Given I am authenticated and have selected a person type
         When I fill the name and click the filter button
         Then all users with that name 
-		And selected person type should be shown
+	And selected person type should be shown
     
     Scenario: Success in search by person type
         Given I am authenticated and have selected a person type
